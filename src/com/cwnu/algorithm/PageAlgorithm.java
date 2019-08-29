@@ -8,9 +8,9 @@ import java.util.List;
  */
 public class PageAlgorithm {
 
-    public static final int PAGE_SIZE = 20;
+    public static final int PAGE_SIZE = 10;
 
-    public static void main(String[] args) {
+    public static void paging1() {
         //模拟数据
         List<String> ums = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
@@ -43,5 +43,28 @@ public class PageAlgorithm {
             }
             page++;
         }
+    }
+
+    /**
+     * 第二种分页还是很清晰
+     */
+    public static void paging2() {
+        //模拟数据
+        List<String> ums = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            ums.add(i + "");
+        }
+
+        for (int i = 0; i < ums.size(); i = i + PAGE_SIZE) {
+            int fromIndex = i;
+            int toIndex = fromIndex + PAGE_SIZE;
+            toIndex = toIndex > ums.size() ? ums.size() : toIndex;
+            List<String> subList = ums.subList(fromIndex,toIndex);
+            System.out.println("subList:" + subList);
+        }
+    }
+
+    public static void main(String[] args) {
+        paging2();
     }
 }

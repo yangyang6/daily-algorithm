@@ -56,10 +56,9 @@ public class PageAlgorithm {
         }
 
         for (int i = 0; i < ums.size(); i = i + PAGE_SIZE) {
-            int fromIndex = i;
-            int toIndex = fromIndex + PAGE_SIZE;
+            int toIndex = i + PAGE_SIZE;
             toIndex = toIndex > ums.size() ? ums.size() : toIndex;
-            List<String> subList = ums.subList(fromIndex,toIndex);
+            List<String> subList = ums.subList(i, toIndex);
             System.out.println("subList:" + subList);
         }
     }

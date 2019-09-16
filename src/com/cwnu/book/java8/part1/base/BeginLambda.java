@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * Created by rey on 2019-09-13.
  */
@@ -29,19 +31,19 @@ public class BeginLambda {
         //方法的传递调用函数
         List<Apple> apples = new ArrayList<>();
         Apple greenApple1 = new Apple();
-        greenApple1.setColor("green");
+        greenApple1.setColor("green1");
         greenApple1.setWeight(5);
         Apple redApple1 = new Apple();
         redApple1.setWeight(6);
-        redApple1.setColor("red");
+        redApple1.setColor("red1");
         Apple redApple2 = new Apple();
-        redApple2.setColor("red");
+        redApple2.setColor("red2");
         redApple2.setWeight(2);
         Apple redApple3 = new Apple();
-        redApple3.setColor("red");
+        redApple3.setColor("red3");
         redApple3.setWeight(7);
         Apple greenApple2 = new Apple();
-        greenApple2.setColor("green");
+        greenApple2.setColor("green2");
         greenApple2.setWeight(2);
         apples.add(redApple1);
         apples.add(redApple2);
@@ -54,8 +56,21 @@ public class BeginLambda {
         //System.out.println("filterGreen apple:" + newResult);
 
         //比较器链
-        apples.sort(Comparator.comparing(Apple::getWeight).reversed().thenComparing(Apple::getColor));
-        System.out.println("two method sorted apples:" + apples);
+        //apples.sort(Comparator.comparing(Apple::getWeight).reversed().thenComparing(Apple::getColor));
+        //System.out.println("two method sorted apples:" + apples);
+
+        //打印出filter和map具体的过程
+        List<String> colors = apples.stream().filter(d -> {
+            System.out.println("filtering " + d.getColor());
+            return d.getWeight() > 5;
+        }).map(d -> {
+            System.out.println("mapping " + d.getColor());
+            return d.getColor();
+        }).limit(3)
+                //跳过1个元素
+                .skip(1).collect(toList());
+        System.out.println(colors);
+
 
     }
 

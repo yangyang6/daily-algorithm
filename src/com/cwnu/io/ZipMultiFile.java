@@ -25,15 +25,27 @@ public class ZipMultiFile {
 //        System.out.println("压缩时间为：" + (end - start) + "ms");
 
 
+//        long start = System.currentTimeMillis();
+//        System.out.println("文件复制开始!");
+//        // 调用文件复制方法
+//        copy("/Users/yangli/Downloads/video","/Users/yangli/Downloads/video2");
+//        System.out.println("文件复制结束");
+//        long end = System.currentTimeMillis();
+//        System.out.println("文件复制时间为：" + (end - start) + "ms");
+//
+
+        //文件的删除
+//        File file = new File("/Users/yangli/Downloads/ZipFile.zip");
+//        file.deleteOnExit();
+
+        //文件夹的删除
+        File file = new File("/Users/yangli/Downloads/video2");
         long start = System.currentTimeMillis();
-        System.out.println("文件复制开始!");
-        // 调用文件复制方法
-        copy("/Users/yangli/Downloads/video","/Users/yangli/Downloads/video2");
-        System.out.println("文件复制结束");
+        System.out.println("文件夹删除开始!");
+        delFile(file);
+        System.out.println("文件夹删除结束");
         long end = System.currentTimeMillis();
-        System.out.println("文件复制时间为：" + (end - start) + "ms");
-
-
+        System.out.println("文件夹删除时间为：" + (end - start) + "ms");
     }
 
     public static void zipFiles(File[] srcFiles, File zipFile) {
@@ -124,5 +136,25 @@ public class ZipMultiFile {
         bis.close();
         bos.close();
         //关闭流
+    }
+
+
+    /**
+     * 文件夹的删除
+     * @param file
+     * @return
+     */
+    public static boolean delFile(File file) {
+        if (!file.exists()) {
+            return false;
+        }
+
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File f : files) {
+                delFile(f);
+            }
+        }
+        return file.delete();
     }
 }

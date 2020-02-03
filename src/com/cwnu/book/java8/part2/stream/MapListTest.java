@@ -42,6 +42,9 @@ public class MapListTest {
 //        System.out.println(list.stream().collect(Collectors.groupingBy(e -> e.getCategory())));
         System.out.println(list.stream().collect(Collectors.groupingBy(e -> e.getCategory() != null)));
     }
+
+
+
 }
 
 

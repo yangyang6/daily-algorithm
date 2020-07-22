@@ -57,7 +57,7 @@ public class PageAlgorithm {
 
         for (int i = 0; i < ums.size(); i = i + PAGE_SIZE) {
             int toIndex = i + PAGE_SIZE;
-            toIndex = toIndex > ums.size() ? ums.size() : toIndex;
+            toIndex = Math.min(toIndex, ums.size());
             List<String> subList = ums.subList(i, toIndex);
             System.out.println("subList:" + subList);
         }

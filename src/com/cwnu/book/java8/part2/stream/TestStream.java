@@ -11,7 +11,7 @@ public class TestStream {
     public static void main(String[] args) {
 
         //流只能遍历一次
-        List<String> title = Arrays.asList("java8","in","action");
+        List<String> title = Arrays.asList("java8", "in", "action");
         Stream stream = title.stream();
         stream.forEach(System.out::println);
         //下面的代码会报错，只能消费一次

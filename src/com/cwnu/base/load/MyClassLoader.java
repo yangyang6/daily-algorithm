@@ -2,7 +2,7 @@ package com.cwnu.base.load;
 
 import java.io.*;
 
-public class MyClassLoader extends ClassLoader{
+public class MyClassLoader extends ClassLoader {
 
     private String root;
 

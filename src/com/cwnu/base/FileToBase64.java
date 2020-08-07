@@ -30,20 +30,20 @@ public class FileToBase64 {
 
 
     public static File base64ToFile(String base64) {
-        if(base64==null||"".equals(base64)) {
+        if (base64 == null || "".equals(base64)) {
             return null;
         }
-        byte[] buff=Base64.getDecoder().decode(base64);
-        File file=null;
-        FileOutputStream fout=null;
+        byte[] buff = Base64.getDecoder().decode(base64);
+        File file = null;
+        FileOutputStream fout = null;
         try {
             file = File.createTempFile("/Users/yangli/Downloads/tmp.jpg", null);
-            fout=new FileOutputStream(file);
+            fout = new FileOutputStream(file);
             fout.write(buff);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if(fout!=null) {
+        } finally {
+            if (fout != null) {
                 try {
                     fout.close();
                 } catch (IOException e) {

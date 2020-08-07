@@ -5,8 +5,8 @@ package com.cwnu.thread.base;
  * 实现线程的执行顺序 t1 -> t2 -> t3
  */
 public class ThreadJoinTest {
-    public static void main(String[] args) throws InterruptedException{
-        Thread t1 = new Thread("thread-1"){
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread("thread-1") {
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName());
@@ -14,7 +14,7 @@ public class ThreadJoinTest {
         };
 
 
-        Thread t2 = new Thread("thread-2"){
+        Thread t2 = new Thread("thread-2") {
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName());
@@ -22,8 +22,7 @@ public class ThreadJoinTest {
         };
 
 
-
-        Thread t3 = new Thread("thread-3"){
+        Thread t3 = new Thread("thread-3") {
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName());

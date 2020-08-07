@@ -4,38 +4,38 @@ public class GoodSuspend {
 
     public static Object u = new Object();
 
-    public static class ChangeObjectThread extends Thread{
+    public static class ChangeObjectThread extends Thread {
         //标识当前线程是否挂起
         volatile boolean suspendMe = false;
 
         //挂起线程的方法
-        public void suspendMe(){
+        public void suspendMe() {
             suspendMe = true;
         }
 
         //继续执行线程的方法
-        public void resumeMe(){
+        public void resumeMe() {
             suspendMe = false;
 
-            synchronized (this){
+            synchronized (this) {
                 notify();
             }
         }
 
         @Override
         public void run() {
-            while (true){
-                synchronized (this){
-                    while (suspendMe){
-                        try{
+            while (true) {
+                synchronized (this) {
+                    while (suspendMe) {
+                        try {
                             wait();
-                        }catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 }
 
-                synchronized (u){
+                synchronized (u) {
                     System.out.println("in ChangeObject Thread");
                 }
 
@@ -44,11 +44,11 @@ public class GoodSuspend {
         }
     }
 
-    public static class ReadObjectThread extends Thread{
+    public static class ReadObjectThread extends Thread {
         @Override
         public void run() {
-            while (true){
-                synchronized (u){
+            while (true) {
+                synchronized (u) {
                     System.out.println("in ReadObjectThread");
                 }
 
@@ -58,7 +58,7 @@ public class GoodSuspend {
         }
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ChangeObjectThread t1 = new ChangeObjectThread();
         ReadObjectThread t2 = new ReadObjectThread();
         t1.start();

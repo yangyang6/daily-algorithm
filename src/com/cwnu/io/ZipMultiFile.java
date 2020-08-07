@@ -11,7 +11,7 @@ import java.util.zip.ZipOutputStream;
  */
 public class ZipMultiFile {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         File dirtoryFile = new File("/Users/yangli/Downloads/video");
         File[] srcFiles = dirtoryFile.listFiles();
         File zipFile = new File("/Users/yangli/Downloads/ZipFile.zip");
@@ -141,6 +141,7 @@ public class ZipMultiFile {
 
     /**
      * 文件夹的删除
+     *
      * @param file
      * @return
      */

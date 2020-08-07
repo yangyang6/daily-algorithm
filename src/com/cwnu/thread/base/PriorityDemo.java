@@ -10,6 +10,7 @@ package com.cwnu.thread.base;
 public class PriorityDemo {
     static class HighProperty extends Thread {
         static int count = 0;
+
         @Override
         public void run() {
             while (true) {
@@ -37,7 +38,7 @@ public class PriorityDemo {
                 }
 
                 System.out.println("low i:" + count);
-                if(count == 99){
+                if (count == 99) {
                     System.out.println("LowerProperty count is max");
                     break;
                 }

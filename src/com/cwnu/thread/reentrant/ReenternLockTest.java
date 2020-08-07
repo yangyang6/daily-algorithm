@@ -21,7 +21,7 @@ public class ReenternLockTest implements Runnable {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         ReenternLockTest t = new ReenternLockTest();
         Thread t1 = new Thread(t);
         Thread t2 = new Thread(t);

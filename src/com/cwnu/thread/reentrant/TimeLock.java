@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 限时等待
  */
-public class TimeLock implements Runnable{
+public class TimeLock implements Runnable {
 
     public static ReentrantLock lock = new ReentrantLock();
 
@@ -16,18 +16,18 @@ public class TimeLock implements Runnable{
      */
     @Override
     public void run() {
-        try{
-            if(lock.tryLock(5, TimeUnit.SECONDS)){
+        try {
+            if (lock.tryLock(5, TimeUnit.SECONDS)) {
                 System.out.println(Thread.currentThread().getName() + "线程睡眠前");
                 Thread.sleep(6000);
                 System.out.println(Thread.currentThread().getName() + "线程睡眠后");
-            }else {
+            } else {
                 System.out.println(Thread.currentThread().getName() + "线程");
             }
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
-            if(lock.isHeldByCurrentThread()){
+        } finally {
+            if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }
         }

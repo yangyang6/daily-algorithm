@@ -1,7 +1,7 @@
 package com.cwnu.base.load;
 
 public class ClassLoaderTest {
-    public static void main(String[] args) throws ClassNotFoundException{
+    public static void main(String[] args) throws ClassNotFoundException {
 //        ClassLoader loader = Thread.currentThread().getContextClassLoader();
 //        System.out.println(loader);
 //        System.out.println(loader.getParent());
@@ -18,6 +18,6 @@ public class ClassLoaderTest {
         //Class.forName("com.cwnu.base.load.Test2");
 
         //指定初始化时不执行静态块
-        Class.forName("com.cwnu.base.load.Test2",false,loader);
+        Class.forName("com.cwnu.base.load.Test2", false, loader);
     }
 }

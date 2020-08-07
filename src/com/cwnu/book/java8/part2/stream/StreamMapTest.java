@@ -39,7 +39,7 @@ public class StreamMapTest {
 
 
         //避免空指针异常
-        Map<String,String> map = roleList.stream().collect(HashMap::new,(m,v) -> m.put(v.getId(),v.getName()),HashMap::putAll);
+        Map<String, String> map = roleList.stream().collect(HashMap::new, (m, v) -> m.put(v.getId(), v.getName()), HashMap::putAll);
         System.out.println(map);
 
 

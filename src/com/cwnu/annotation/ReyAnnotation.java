@@ -12,7 +12,9 @@ import java.lang.annotation.*;
 @Documented
 public @interface ReyAnnotation {
     String name();
+
     //既有属性的特征(可以赋值)，又有方法的特征(打了一对括号)
     int age() default 18;
+
     int[] score();
 }

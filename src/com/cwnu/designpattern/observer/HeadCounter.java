@@ -2,7 +2,6 @@ package com.cwnu.designpattern.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * 发布者

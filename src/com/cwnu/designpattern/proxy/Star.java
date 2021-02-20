@@ -1,4 +1,4 @@
-package com.cwnu.designpattern;
+package com.cwnu.designpattern.proxy;
 
 public class Star implements IAct {
     public void doSing() {

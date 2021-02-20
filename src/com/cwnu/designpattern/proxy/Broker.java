@@ -1,4 +1,4 @@
-package com.cwnu.designpattern;
+package com.cwnu.designpattern.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

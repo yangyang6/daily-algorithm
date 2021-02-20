@@ -1,6 +1,6 @@
 package com.cwnu.base;
 
-public class Test {
+public class Test implements Cloneable{
 
     static class A {
         public void setA() {

@@ -12,5 +12,15 @@ public class HashMapTest {
         hashMap.entrySet().forEach(e->{
             System.out.println(e.getKey()+"===" + e.getValue());
         });
+
+        System.out.println(getString());
+    }
+
+    public static String getString(){
+        try{
+            return "aaa";
+        }finally {
+            return "success";
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.cwnu.designpattern;
+package com.cwnu.designpattern.proxy;
 
 public interface IAct {
     void doSing();
